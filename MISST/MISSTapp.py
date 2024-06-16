@@ -1851,7 +1851,10 @@ class MISSTapp(customtkinter.CTk):
         """
         self.playbutton.configure(state=tkinter.DISABLED)
         try:
-            index = int(index_label)
+            if index_label != '':
+                index = int(index_label)
+            else:
+                index = 0  # or any default value
             song = songs[index - 1]
             self.playing = True
             self.effects_checkbox.deselect()
